@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Changed read from file to mongoldb.&#10; WIP: Update accounts" />
+    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Changed read from file to mongoldb.&#10; WIP: Update accounts">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AccountApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AccountUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountUtility.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,28 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.ATM_App [:AccountApp.main()].executor": "Run",
-    "Gradle.ATM_App.executor": "Run",
-    "Gradle.Build ATM_App.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/alan/Documents/Coding projects/ATM_App",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.ATM_App [:AccountApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ATM_App.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build ATM_App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alan/Documents/Coding projects/ATM_App&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AccountApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
@@ -102,8 +108,21 @@
       <workItem from="1704755368997" duration="3275000" />
       <workItem from="1704758799466" duration="5187000" />
       <workItem from="1704765598083" duration="892000" />
-      <workItem from="1704775183551" duration="4401000" />
+      <workItem from="1704775183551" duration="5114000" />
+      <workItem from="1704780553309" duration="224000" />
+      <workItem from="1704831547870" duration="1401000" />
+      <workItem from="1704841225589" duration="2802000" />
+      <workItem from="1704852246607" duration="2290000" />
     </task>
+    <task id="LOCAL-00001" summary="Changed read from file to mongoldb.&#10; WIP: Update accounts">
+      <option name="closed" value="true" />
+      <created>1704780152693</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704780152695</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

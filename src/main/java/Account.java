@@ -6,9 +6,9 @@ public abstract class Account implements AccountConstants {
     public String name;
     public GregorianCalendar openDate;
     public double balance;
-    
+
     public abstract int transferTo(Account account, double amount);
-    
+
     public Account(String number, String name, GregorianCalendar openDate,
                    double balance)
     {
@@ -25,13 +25,13 @@ public abstract class Account implements AccountConstants {
     public boolean withdraw(double amount)
     {
         if(balance < amount)
-             return false;
-        else 
+            return false;
+        else
         {
-             balance -= amount;
-             return true;
+            balance -= amount;
+            return true;
         }
     }
-    
-    
+
+
 }

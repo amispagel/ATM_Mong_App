@@ -13,9 +13,9 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation 'org.mongodb:mongodb-driver-sync:4.11.1' // MongoDB Java driver dependency
-    implementation 'org.slf4j:slf4j-api:1.5.6' // or the appropriate version
+  //  implementation 'org.slf4j:slf4j-api:1.5.6' // or the appropriate version
 // Logback Classic (or another logging backend)
-    implementation 'ch.qos.logback:logback-classic:1.2.6' // Use the latest version available
+   // implementation 'ch.qos.logback:logback-classic:1.2.6' // Use the latest version available
 }
 
 test {
