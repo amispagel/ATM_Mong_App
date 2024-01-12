@@ -93,32 +93,75 @@ public class AccountUtility  {
 
     }
 
-public boolean saveCheckingAccounts()
+    public boolean saveCheckingAccounts(CheckingAccount ca)
+    {    //outputs the arraylist to txt file
+// Replace the placeholder with your MongoDB deployment's connection string
+        String uri = "mongodb+srv://user1:drobz4o3zFxf9CD3@cluster0.9trto2g.mongodb.net/?retryWrites=true&w=majority";
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("ATM_DB");
+            MongoCollection<Document> collection = database.getCollection("Customers");
+
+                //collection.updateOne(Filters.eq("id", p.number), Updates.set("amount", p.balance));
+
+                // Define the update operation
+                Document filter = new Document("id", Integer.parseInt(ca.number)); // Replace with your filter criteria - previous bug: criteria did not match because of String not being Int
+                Document update = new Document("$set", new Document("amount", ca.balance));
+
+                // Perform the update operation and retrieve the UpdateResult
+                UpdateResult updateResult = collection.updateOne(filter, update);
+
+                // Access information from the UpdateResult
+                System.out.println("Matched documents: " + updateResult.getMatchedCount());
+                System.out.println("Modified documents: " + updateResult.getModifiedCount());
+                System.out.println("Update acknowledged: " + updateResult.wasAcknowledged());
+
+            return true;
+
+        } catch (Exception e) {
+            // Handle exceptions
+            System.out.println("Document update failed, issue with updating Mongo.");
+            e.printStackTrace();
+            return false;
+        }
+    }
+public boolean saveCheckingAccounts(CheckingAccount from, CheckingAccount to)
 {    //outputs the arraylist to txt file
 // Replace the placeholder with your MongoDB deployment's connection string
     String uri = "mongodb+srv://user1:drobz4o3zFxf9CD3@cluster0.9trto2g.mongodb.net/?retryWrites=true&w=majority";
+
 
     try (MongoClient mongoClient = MongoClients.create(uri)) {
         MongoDatabase database = mongoClient.getDatabase("ATM_DB");
         MongoCollection<Document> collection = database.getCollection("Customers");
 
-        for (CheckingAccount p : accounts){
-            //collection.updateOne(Filters.eq("id", p.number), Updates.set("amount", p.balance));
+        //collection.updateOne(Filters.eq("id", p.number), Updates.set("amount", p.balance));
 
-            // Define the update operation
-            Document filter = new Document("id", Integer.parseInt(p.number)); // Replace with your filter criteria
-            Document update = new Document("$set", new Document("amount", p.balance));
+        // Define the update operation
+        Document filter = new Document("id", Integer.parseInt(from.number)); // Replace with your filter criteria - previous bug: criteria did not match because of String not being Int
+        Document update = new Document("$set", new Document("amount", from.balance));
 
-            // Perform the update operation and retrieve the UpdateResult
-            UpdateResult updateResult = collection.updateOne(filter, update);
+        // Perform the update operation and retrieve the UpdateResult
+        UpdateResult updateResult = collection.updateOne(filter, update);
 
-            // Access information from the UpdateResult
-            System.out.println("Matched documents: " + updateResult.getMatchedCount());
-            System.out.println("Modified documents: " + updateResult.getModifiedCount());
-            System.out.println("Update acknowledged: " + updateResult.wasAcknowledged());
+        // Access information from the UpdateResult
+        System.out.println("Matched documents: " + updateResult.getMatchedCount());
+        System.out.println("Modified documents: " + updateResult.getModifiedCount());
+        System.out.println("Update acknowledged: " + updateResult.wasAcknowledged());
 
-        }
-        System.out.println("Collection updated successfully in DB.");
+        //collection.updateOne(Filters.eq("id", p.number), Updates.set("amount", p.balance));
+
+        // Define the update operation
+        Document filter2 = new Document("id", Integer.parseInt(to.number)); // Replace with your filter criteria - previous bug: criteria did not match because of String not being Int
+        Document update2 = new Document("$set", new Document("amount", to.balance));
+
+        // Perform the update operation and retrieve the UpdateResult
+        UpdateResult updateResult2 = collection.updateOne(filter2, update2);
+
+        // Access information from the UpdateResult
+        System.out.println("Matched documents: " + updateResult2.getMatchedCount());
+        System.out.println("Modified documents: " + updateResult2.getModifiedCount());
+        System.out.println("Update acknowledged: " + updateResult2.wasAcknowledged());
 
         return true;
 

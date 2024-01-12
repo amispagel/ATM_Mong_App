@@ -5,8 +5,8 @@ import java.util.GregorianCalendar;
 public class CheckingAccount extends Account
 {
 
-    public CheckingAccount(String number, String name, 
-                           GregorianCalendar openDate, double balance) 
+    public CheckingAccount(String number, String name,
+                           GregorianCalendar openDate, double balance)
     {
         super(number, name, openDate, balance);
     }
@@ -26,5 +26,5 @@ public class CheckingAccount extends Account
                 return -2;
         }
     }
-    
+
 }

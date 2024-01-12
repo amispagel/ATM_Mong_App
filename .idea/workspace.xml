@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Changed read from file to mongoldb.&#10; WIP: Update accounts">
+    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Added transfer functionality">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AccountApp.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AccountApp.form" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AccountApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AccountUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CheckingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CheckingAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +70,15 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AccountApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
@@ -112,7 +119,10 @@
       <workItem from="1704780553309" duration="224000" />
       <workItem from="1704831547870" duration="1401000" />
       <workItem from="1704841225589" duration="2802000" />
-      <workItem from="1704852246607" duration="2290000" />
+      <workItem from="1704852246607" duration="4409000" />
+      <workItem from="1704916727261" duration="1090000" />
+      <workItem from="1704917867276" duration="9211000" />
+      <workItem from="1705008829622" duration="4122000" />
     </task>
     <task id="LOCAL-00001" summary="Changed read from file to mongoldb.&#10; WIP: Update accounts">
       <option name="closed" value="true" />
@@ -122,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704780152695</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added functions to take">
+      <option name="closed" value="true" />
+      <created>1704855508336</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704855508336</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +149,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed read from file to mongoldb.&#10; - WIP: Update accounts" />
     <MESSAGE value="Changed read from file to mongoldb.&#10; WIP: Update accounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed read from file to mongoldb.&#10; WIP: Update accounts" />
+    <MESSAGE value="Added functions to take" />
+    <MESSAGE value="Added transfer functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added transfer functionality" />
   </component>
 </project>

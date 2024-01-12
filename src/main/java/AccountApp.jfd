@@ -1,0 +1,73 @@
+JFDML JFormDesigner: "8.2.1.0.348" Java: "17.0.9" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :10:10:p, par l {seq {comp jLabel3:::p::p, space :13:13:p, comp customernameTextField:::p:139:p, space :6:6:p, comp transfertoButton:::p::p}, seq {comp jLabel4:::p::p, space :52:52:p, comp balanceTextField:::p:139:p, space :6:6:p, comp exitButton:::p::p}, seq l {par l {seq l {comp jLabel2:::p::p, space :37:37:p, comp opendateTextField:::p:139:p}, seq l {comp jLabel1:::p::p, space :10:10:p, comp accountnumberComboBox:::p::p}}, space :p:6:p, par l {comp depositButton:::p::p, comp withdrawButton:::p::p}}}, space ::24:x}}"
+			"$verticalGroup": "par l {seq {par l {seq {space :p:15:p, comp jLabel1:::p::p}, seq {space :p:11:p, par b {comp accountnumberComboBox::b:p::p, comp depositButton::b:p::p}}}, space :p:6:p, par l {seq {space :4:4:p, comp jLabel2:::p::p}, seq {space :1:1:p, comp opendateTextField:::p::p}, comp withdrawButton:::p::p}, space :6:6:p, par l {seq {space :4:4:p, comp jLabel3:::p::p}, seq {space :1:1:p, comp customernameTextField:::p::p}, comp transfertoButton:::p::p}, space :3:3:p, par l {seq {space :4:4:p, comp jLabel4:::p::p}, seq {space :1:1:p, comp balanceTextField:::p::p}, comp exitButton:::p::p}}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"title": "Bank Account Application"
+			"resizable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"text": "Account Number:"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "accountnumberComboBox"
+				"model": new javax.swing.DefaultComboBoxModel
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "accountnumberComboBoxActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel2"
+				"text": "Open Date:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel3"
+				"text": "Customer Name:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel4"
+				"text": "Balance:"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "opendateTextField"
+				"editable": false
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "customernameTextField"
+				"editable": false
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "balanceTextField"
+				"editable": false
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "depositButton"
+				"mnemonic": 100
+				"text": "Deposit"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "depositButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "withdrawButton"
+				"mnemonic": 119
+				"text": "Withdraw"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "withdrawButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "transfertoButton"
+				"mnemonic": 116
+				"text": "Transfer To"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "transfertoButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "exitButton"
+				"mnemonic": 120
+				"text": "Exit"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) )
+	}
+}

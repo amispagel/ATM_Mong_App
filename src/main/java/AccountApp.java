@@ -67,7 +67,7 @@ public class AccountApp extends javax.swing.JFrame {
             CheckingAccount ca =  n.getCheckingAccount(account);
             if(ca.deposit(Double.parseDouble(amount))){
                 n.updateCheckingAccount(ca);
-                if(n.saveCheckingAccounts())
+                if(n.saveCheckingAccounts(ca))
                     fillaccountnumberComboBox();
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
@@ -87,7 +87,7 @@ public class AccountApp extends javax.swing.JFrame {
             CheckingAccount ca =  n.getCheckingAccount(account);
             if(ca.withdraw(Double.parseDouble(amount))){
                 n.updateCheckingAccount(ca);
-                if(n.saveCheckingAccounts())
+                if(n.saveCheckingAccounts(ca))
                     fillaccountnumberComboBox();
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
@@ -138,38 +138,39 @@ public class AccountApp extends javax.swing.JFrame {
                                     amount, "Invalid transfer",
                             JOptionPane.ERROR_MESSAGE);}
                 else{
-                    if(fromca.transferTo(toca, Double.parseDouble(amount)) == 0)
+                    int transfer = fromca.transferTo(toca, Double.parseDouble(amount));
+                    if(transfer == 0)
                     {
                         JOptionPane.showMessageDialog(this,
                                 "$"+ amount + " was transferred to " +toaccount
                                 ,"Transfer successful",
                                 JOptionPane.PLAIN_MESSAGE);}
-                    if(fromca.transferTo(toca, Double.parseDouble(amount)) == 1)
+                    if(transfer == 1)
                     {
                         JOptionPane.showMessageDialog(this,
                                 "$"+ amount + " was transferred to " +toaccount
-                                        + "\n$2.0 transfer fee was applied."
+                                        + "\n$2 transfer fee was applied."
                                 ,"Transfer successful",
                                 JOptionPane.PLAIN_MESSAGE);}
-                    if(fromca.transferTo(toca, Double.parseDouble(amount)) == -1)
+                    if(transfer == -1)
                     {
                         JOptionPane.showMessageDialog(this,
                                 "Transfer is unsuccessful because balance is "+
                                         "less than transfer amount and transfer fee."
                                 ,"Unsuccessful transfer",
                                 JOptionPane.ERROR_MESSAGE);}
-                    if(fromca.transferTo(toca, Double.parseDouble(amount)) == -2)
+                    if(transfer == -2)
                     {
                         JOptionPane.showMessageDialog(this,
                                 "Transfer is unsuccessful because balance is "+
-                                        "less than transfer amount"
+                                        "less than balance threshold"
                                 ,"Unsuccessful transfer",
                                 JOptionPane.ERROR_MESSAGE);}
                 }
 
                 n.updateCheckingAccount(fromca);
                 n.updateCheckingAccount(toca);
-                if(n.saveCheckingAccounts())
+                if(n.saveCheckingAccounts(fromca, toca))
                     fillaccountnumberComboBox();
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
@@ -180,159 +181,153 @@ public class AccountApp extends javax.swing.JFrame {
             Logger.getLogger(AccountApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Generated using JFormDesigner Evaluation license - Megaman
     private void initComponents() {
+        jLabel1 = new JLabel();
+        accountnumberComboBox = new JComboBox<>();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+        jLabel4 = new JLabel();
+        opendateTextField = new JTextField();
+        customernameTextField = new JTextField();
+        balanceTextField = new JTextField();
+        depositButton = new JButton();
+        withdrawButton = new JButton();
+        transfertoButton = new JButton();
+        exitButton = new JButton();
 
-        jLabel1 = new javax.swing.JLabel();
-        accountnumberComboBox = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        opendateTextField = new javax.swing.JTextField();
-        customernameTextField = new javax.swing.JTextField();
-        balanceTextField = new javax.swing.JTextField();
-        depositButton = new javax.swing.JButton();
-        withdrawButton = new javax.swing.JButton();
-        transfertoButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //======== this ========
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bank Account Application");
         setResizable(false);
+        var contentPane = getContentPane();
 
+        //---- jLabel1 ----
         jLabel1.setText("Account Number:");
 
-        accountnumberComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountnumberComboBoxActionPerformed(evt);
-            }
-        });
+        //---- accountnumberComboBox ----
+        accountnumberComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
 
+        }));
+        accountnumberComboBox.addActionListener(this::accountnumberComboBoxActionPerformed);
+
+        //---- jLabel2 ----
         jLabel2.setText("Open Date:");
 
+        //---- jLabel3 ----
         jLabel3.setText("Customer Name:");
 
+        //---- jLabel4 ----
         jLabel4.setText("Balance:");
 
+        //---- opendateTextField ----
         opendateTextField.setEditable(false);
 
+        //---- customernameTextField ----
         customernameTextField.setEditable(false);
 
+        //---- balanceTextField ----
         balanceTextField.setEditable(false);
 
+        //---- depositButton ----
         depositButton.setMnemonic('d');
         depositButton.setText("Deposit");
+        depositButton.addActionListener(this::depositButtonActionPerformed);
 
-        depositButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositButtonActionPerformed(evt);
-
-            }
-        });
-
+        //---- withdrawButton ----
         withdrawButton.setMnemonic('w');
         withdrawButton.setText("Withdraw");
-        withdrawButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawButtonActionPerformed(evt);
-            }
-        });
+        withdrawButton.addActionListener(this::withdrawButtonActionPerformed);
 
+        //---- transfertoButton ----
         transfertoButton.setMnemonic('t');
         transfertoButton.setText("Transfer To");
-        transfertoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                transfertoButtonActionPerformed(evt);
-            }
-        });
+        transfertoButton.addActionListener(this::transfertoButtonActionPerformed);
 
+        //---- exitButton ----
         exitButton.setMnemonic('x');
         exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
+        exitButton.addActionListener(this::exitButtonActionPerformed);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(13, 13, 13)
-                                                .addComponent(customernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(transfertoButton))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addGap(52, 52, 52)
-                                                .addComponent(balanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(exitButton))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel2)
-                                                                .addGap(37, 37, 37)
-                                                                .addComponent(opendateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel1)
-                                                                .addGap(10, 10, 10)
-                                                                .addComponent(accountnumberComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(6, 6, 6)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(depositButton)
-                                                        .addComponent(withdrawButton))))
-                                .addContainerGap(24, Short.MAX_VALUE))
+        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+        contentPane.setLayout(contentPaneLayout);
+        contentPaneLayout.setHorizontalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(13, 13, 13)
+                            .addComponent(customernameTextField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+                            .addGap(6, 6, 6)
+                            .addComponent(transfertoButton))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(52, 52, 52)
+                            .addComponent(balanceTextField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+                            .addGap(6, 6, 6)
+                            .addComponent(exitButton))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(37, 37, 37)
+                                    .addComponent(opendateTextField, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(accountnumberComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                            .addGap(6, 6, 6)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(depositButton)
+                                .addComponent(withdrawButton))))
+                    .addContainerGap(24, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(15, 15, 15)
-                                                .addComponent(jLabel1))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(11, 11, 11)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(accountnumberComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(depositButton))))
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(jLabel2))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(1, 1, 1)
-                                                .addComponent(opendateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(withdrawButton))
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(jLabel3))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(1, 1, 1)
-                                                .addComponent(customernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(transfertoButton))
-                                .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(jLabel4))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(1, 1, 1)
-                                                .addComponent(balanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(exitButton)))
+        contentPaneLayout.setVerticalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jLabel1))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(accountnumberComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(depositButton))))
+                    .addGap(6, 6, 6)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(4, 4, 4)
+                            .addComponent(jLabel2))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(opendateTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(withdrawButton))
+                    .addGap(6, 6, 6)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(4, 4, 4)
+                            .addComponent(jLabel3))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(customernameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(transfertoButton))
+                    .addGap(3, 3, 3)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(4, 4, 4)
+                            .addComponent(jLabel4))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(balanceTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(exitButton)))
         );
-
         pack();
+        setLocationRelativeTo(getOwner());
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -423,17 +418,18 @@ public class AccountApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox accountnumberComboBox;
-    private javax.swing.JTextField balanceTextField;
-    private javax.swing.JTextField customernameTextField;
-    private javax.swing.JButton depositButton;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField opendateTextField;
-    private javax.swing.JButton transfertoButton;
-    private javax.swing.JButton withdrawButton;
+    // Generated using JFormDesigner Evaluation license - Megaman
+    private JLabel jLabel1;
+    private JComboBox<String> accountnumberComboBox;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JTextField opendateTextField;
+    private JTextField customernameTextField;
+    private JTextField balanceTextField;
+    private JButton depositButton;
+    private JButton withdrawButton;
+    private JButton transfertoButton;
+    private JButton exitButton;
     // End of variables declaration//GEN-END:variables
 }
