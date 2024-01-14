@@ -67,8 +67,10 @@ public class AccountApp extends javax.swing.JFrame {
             CheckingAccount ca =  n.getCheckingAccount(account);
             if(ca.deposit(Double.parseDouble(amount))){
                 n.updateCheckingAccount(ca);
-                if(n.saveCheckingAccounts(ca))
-                    fillaccountnumberComboBox();
+                if(n.saveCheckingAccounts(ca)){
+                    fillform(account);
+                    JOptionPane.showMessageDialog(this, "Account(s) updated.",
+                            "Successful transaction", JOptionPane.ERROR_MESSAGE);}
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
                                     + "with the stream.",
@@ -87,8 +89,10 @@ public class AccountApp extends javax.swing.JFrame {
             CheckingAccount ca =  n.getCheckingAccount(account);
             if(ca.withdraw(Double.parseDouble(amount))){
                 n.updateCheckingAccount(ca);
-                if(n.saveCheckingAccounts(ca))
-                    fillaccountnumberComboBox();
+                if(n.saveCheckingAccounts(ca)){
+                    fillform(account);
+                    JOptionPane.showMessageDialog(this, "Account(s) updated.",
+                            "Successful transaction", JOptionPane.ERROR_MESSAGE);}
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
                                     + "with the stream.",
@@ -171,7 +175,7 @@ public class AccountApp extends javax.swing.JFrame {
                 n.updateCheckingAccount(fromca);
                 n.updateCheckingAccount(toca);
                 if(n.saveCheckingAccounts(fromca, toca))
-                    fillaccountnumberComboBox();
+                    fillform(account);
                 else
                     JOptionPane.showMessageDialog(this, "There was a problem"
                                     + "with the stream.",
@@ -211,7 +215,7 @@ public class AccountApp extends javax.swing.JFrame {
         accountnumberComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
 
         }));
-        accountnumberComboBox.addActionListener(this::accountnumberComboBoxActionPerformed);
+        accountnumberComboBox.addActionListener(e -> accountnumberComboBoxActionPerformed(e));
 
         //---- jLabel2 ----
         jLabel2.setText("Open Date:");
@@ -234,22 +238,22 @@ public class AccountApp extends javax.swing.JFrame {
         //---- depositButton ----
         depositButton.setMnemonic('d');
         depositButton.setText("Deposit");
-        depositButton.addActionListener(this::depositButtonActionPerformed);
+        depositButton.addActionListener(e -> depositButtonActionPerformed(e));
 
         //---- withdrawButton ----
         withdrawButton.setMnemonic('w');
         withdrawButton.setText("Withdraw");
-        withdrawButton.addActionListener(this::withdrawButtonActionPerformed);
+        withdrawButton.addActionListener(e -> withdrawButtonActionPerformed(e));
 
         //---- transfertoButton ----
         transfertoButton.setMnemonic('t');
         transfertoButton.setText("Transfer To");
-        transfertoButton.addActionListener(this::transfertoButtonActionPerformed);
+        transfertoButton.addActionListener(e -> transfertoButtonActionPerformed(e));
 
         //---- exitButton ----
         exitButton.setMnemonic('x');
         exitButton.setText("Exit");
-        exitButton.addActionListener(this::exitButtonActionPerformed);
+        exitButton.addActionListener(e -> exitButtonActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
