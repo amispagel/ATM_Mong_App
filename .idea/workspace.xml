@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Added transfer functionality, converted jform to intellij">
+    <list default="true" id="31bcdfbd-00a7-4d52-8654-09922fb11cfc" name="Changes" comment="Fixed label update bug where form would default to the first account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AccountApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AccountConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AccountUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AccountUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CheckingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CheckingAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,28 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.ATM_App [:AccountApp.main()].executor": "Run",
-    "Gradle.ATM_App.executor": "Run",
-    "Gradle.Build ATM_App.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/alan/Documents/Coding projects/ATM_App",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.ATM_App [:AccountApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ATM_App.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build ATM_App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alan/Documents/Coding projects/ATM_App&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -119,7 +123,8 @@
       <workItem from="1704916727261" duration="1090000" />
       <workItem from="1704917867276" duration="9211000" />
       <workItem from="1705008829622" duration="5585000" />
-      <workItem from="1705192344086" duration="4758000" />
+      <workItem from="1705192344086" duration="5292000" />
+      <workItem from="1705458172370" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="Changed read from file to mongoldb.&#10; WIP: Update accounts">
       <option name="closed" value="true" />
@@ -153,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705026614702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed label update bug where form would default to the first account">
+      <option name="closed" value="true" />
+      <created>1705197384646</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705197384646</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,14 +189,15 @@
     <MESSAGE value="Added functions to take" />
     <MESSAGE value="Added transfer functionality" />
     <MESSAGE value="Added transfer functionality, converted jform to intellij" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added transfer functionality, converted jform to intellij" />
+    <MESSAGE value="Fixed label update bug where form would default to the first account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed label update bug where form would default to the first account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AccountApp.java</url>
-          <line>47</line>
+          <line>46</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

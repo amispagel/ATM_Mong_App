@@ -1,4 +1,3 @@
-//Alan Mispagel
 
 import java.util.GregorianCalendar;
 public abstract class Account implements AccountConstants {

@@ -1,4 +1,3 @@
-//Alan Mispagel
 
 import java.util.GregorianCalendar;
 

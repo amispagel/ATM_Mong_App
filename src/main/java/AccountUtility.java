@@ -1,4 +1,3 @@
-//Alan Mispagel
 
 import com.mongodb.client.*;
 import com.mongodb.client.result.UpdateResult;
